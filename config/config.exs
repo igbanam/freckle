@@ -36,7 +36,7 @@ configuration = case File.read(Path.expand("~/.bellboy")) do
     |> Enum.reject(fn x -> x == "" end)
     |> Enum.map(fn pair -> pair |> String.split("=") end)
     |> Enum.map(fn [a, b] -> { a |> String.downcase |> String.to_atom, b } end)
-  { :error, :enoent } -> :ok
+  { :error, :enoent } -> System.halt("Configure with ~/.bellboy")
 end
 
 config :bellboy, configuration

@@ -1,6 +1,6 @@
 defmodule Bellboy.Freckle_Client do
   def create(:entries, data \\ %{}) do
-    post_data = Map.merge(data, %{"date": Date.utc_today |> Date.to_string})
+    post_data = Map.merge(data, %{date: Date.utc_today |> Date.to_string})
 
     { :ok, response } = HTTPoison.post(
       base_url() <> "/entries",
